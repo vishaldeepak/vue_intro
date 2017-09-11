@@ -6,15 +6,32 @@ defmodule PhoenixVue.User do
 
   schema "users" do
     field :password_hash, :string
+    field :password, :string, virtual: true    
     field :username, :string
 
     timestamps()
   end
 
-  @doc false
-  def changeset(%User{} = user, attrs) do
+  @doc """
+    Used for registering a user
+  """
+  def register_changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:username, :password_hash])
     |> validate_required([:username, :password_hash])
+    |> validate_length(:password, min: 6, max: 20)
+    |> hash_password
   end
+
+  defp hash_password(changeset) do
+    case changeset do
+      %Ecto.Changeset{valid?: true,
+                      changes: %{password: password}} ->
+        put_change(changeset,
+                   :password_hash,
+                   Comeonin.Bcrypt.hash_pwd_salt(password))
+      _ ->
+        changeset
+    end
+  end  
 end
