@@ -20,7 +20,9 @@ defmodule PhoenixVueWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PhoenixVueWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixVueWeb do
+    pipe_through :api
+
+    post "/register", AuthController, :register
+  end
 end
