@@ -15,7 +15,7 @@ defmodule PhoenixVue.User do
   @doc """
     Used for registering a user
   """
-  def register_changeset(%User{} = user, attrs) do
+  def registeration_changeset(%User{} = user, attrs) do
     user
     |> cast(attrs, [:username, :password_hash])
     |> validate_required([:username, :password_hash])

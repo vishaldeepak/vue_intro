@@ -20,6 +20,7 @@ defmodule PhoenixVueWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: PhoenixVueWeb
+      alias PhoenixVue.Repo
       import Plug.Conn
       import PhoenixVueWeb.Router.Helpers
       import PhoenixVueWeb.Gettext
