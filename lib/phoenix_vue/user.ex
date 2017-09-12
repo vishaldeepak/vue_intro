@@ -17,8 +17,8 @@ defmodule PhoenixVue.User do
   """
   def registeration_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:username, :password_hash])
-    |> validate_required([:username, :password_hash])
+    |> cast(attrs, [:username, :password])
+    |> validate_required([:username, :password])
     |> validate_length(:password, min: 6, max: 20)
     |> hash_password
   end
@@ -29,7 +29,7 @@ defmodule PhoenixVue.User do
                       changes: %{password: password}} ->
         put_change(changeset,
                    :password_hash,
-                   Comeonin.Bcrypt.hash_pwd_salt(password))
+                   Comeonin.Bcrypt.hashpwsalt(password))
       _ ->
         changeset
     end
