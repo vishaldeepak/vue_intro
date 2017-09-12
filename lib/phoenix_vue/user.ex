@@ -20,6 +20,7 @@ defmodule PhoenixVue.User do
     |> cast(attrs, [:username, :password])
     |> validate_required([:username, :password])
     |> validate_length(:password, min: 6, max: 20)
+    |> unique_constraint(:username)    
     |> hash_password
   end
 

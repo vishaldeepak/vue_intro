@@ -17,6 +17,15 @@ config :phoenix_vue, PhoenixVueWeb.Endpoint,
   pubsub: [name: PhoenixVue.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :phoenix_vue, PhoenixVue.Guardian,
+  issuer: "phoenix_vue",
+  secret_key: "xrNC/d9AtJ+mCAneiPq0aPR5Mi9tBFo6rj+MjkcCd3zbhbPxbY5HNyr0rCGnPT+e"           
+
+config :phoenix_vue, PhoenixVue.AuthAccessPipeline,
+module: PhoenixVue.Guardian,
+error_handler: PhoenixVue.AuthErrorHandler  
+
+           
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

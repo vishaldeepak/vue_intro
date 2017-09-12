@@ -13,6 +13,10 @@ defmodule PhoenixVueWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :api_auth do
+    plug PhoenixVue.AuthAccessPipeline  
+  end
+
   scope "/", PhoenixVueWeb do
     pipe_through :browser # Use the default browser stack
 
@@ -24,5 +28,12 @@ defmodule PhoenixVueWeb.Router do
     pipe_through :api
 
     post "/register", AuthController, :register
+    post "/login", AuthController, :login
+  end
+
+  scope "/api", PhoenixVueWeb do
+    pipe_through [:api, :api_auth]
+
+    get "/resource", AuthController, :resource
   end
 end

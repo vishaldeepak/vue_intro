@@ -5,6 +5,13 @@ defmodule PhoenixVueWeb.AuthView do
     %{user: user_mapper(user)}
   end
 
+  def render("login.json",  %{token: token, user_id: user_id}) do
+    %{
+      token: token,
+      user_id: user_id
+    }
+  end  
+
   defp user_mapper(user) do 
     %{
       username: user.username,
