@@ -1,6 +1,20 @@
 # finalapp
 
-> Udemy course Final project. Stock trade
+> Bare Bones Stock trade Project
+
+## The App
+
+A good introduction to few that touches many parts of Vue. Namely
+
+ - Vue
+ - Components
+ - Vuex - State Management
+ - Vue Router
+ - Animations
+ - Vue Resource - Connect to server
+ - Various Directives
+ - JWT Authentication
+ 
 
 ## Build Setup
 

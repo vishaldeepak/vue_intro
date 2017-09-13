@@ -1,5 +1,13 @@
 # PhoenixVue
 
+This is learning Vue app. It uses Vue, Vue-Router, Vuex, Vue-Resource. It also connects with a backend phoenix app. 
+
+The Vue app is in the `/client directory`
+
+## The Phoenix App
+
+It provides a few routes for the sake of login. We use `Guardian` to provide `JWT`. A user resource has required credentials for the sake of login
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -11,10 +19,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
-## Learn more
+## The Vue App
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+The documentation can be found inside the `/client` directory
