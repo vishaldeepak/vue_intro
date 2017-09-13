@@ -10,7 +10,7 @@ defmodule PhoenixVueWeb.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json-api", "json"]
   end
 
   pipeline :api_auth do
@@ -26,7 +26,7 @@ defmodule PhoenixVueWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api", PhoenixVueWeb do
     pipe_through :api
-
+    
     post "/register", AuthController, :register
     post "/login", AuthController, :login
   end

@@ -25,7 +25,9 @@ config :phoenix_vue, PhoenixVue.AuthAccessPipeline,
 module: PhoenixVue.Guardian,
 error_handler: PhoenixVue.AuthErrorHandler  
 
-           
+# Set Corsica logging to output a console warning when rejecting a request
+config :phoenix_vue, :corsica_log_level, [rejected: :warn]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

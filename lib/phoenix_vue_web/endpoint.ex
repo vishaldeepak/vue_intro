@@ -38,6 +38,11 @@ defmodule PhoenixVueWeb.Endpoint do
     key: "_phoenix_vue_key",
     signing_salt: "qMS3skz9"
 
+  plug Corsica, [
+    origins: "*",
+    allow_headers: ["accept", "authorization", "content-type", "origin", "x-requested-with"]
+  ]
+
   plug PhoenixVueWeb.Router
 
   @doc """

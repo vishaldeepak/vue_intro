@@ -43,7 +43,8 @@ defmodule PhoenixVue.Mixfile do
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:guardian, "~> 1.0-beta"}  
+      {:guardian, "~> 1.0-beta"},
+      {:corsica, "~> 1.0"}
     ]
   end
 
